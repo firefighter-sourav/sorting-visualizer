@@ -1,8 +1,17 @@
+:root {
+  --background: #ffffe6;
+  --nav-bg: #000051;
+  --nav-button: #ecb3ff;
+  --text-light: #fff;
+  --text-dark: #000;
+  --unsorted-bar-background: #b35900;
+  --active-bar-background: #e6005c;
+  --sorted-bar-background: #248f24;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

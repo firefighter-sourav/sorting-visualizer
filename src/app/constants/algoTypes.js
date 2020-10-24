@@ -1,0 +1,1 @@
+export const BUBBLE_SORT = "BUBBLE-SORT-ALGORITHM"

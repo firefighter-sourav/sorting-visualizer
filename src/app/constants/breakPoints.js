@@ -1,0 +1,5 @@
+export const desktopSm = "1199.98px"
+export const tabletMd = "991.98px"
+export const mobileLg = "767.98px"
+export const mobileMd = "575.98px"
+export const mobileSm = "359.98px"
