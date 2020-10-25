@@ -50,5 +50,9 @@ export const sortingOptions = [
     {
         value: algoTypes.BUBBLE_SORT,
         label: "Bubble Sort"
+    },
+    {
+        value: algoTypes.MERGE_SORT,
+        label: "Merge Sort"
     }
 ]

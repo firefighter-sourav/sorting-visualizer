@@ -53,9 +53,16 @@ const Menu = () => {
                 </Styles.Select>
             </Styles.MenuItem>
             {
-                arrayLength && sortingAlgo && speed && (
+                arrayLength && sortingAlgo && speed && !sorting &&  (
                     <Styles.MenuItem type="button" onClick={()=>!sorting && sort()}>
                         Sort!
+                    </Styles.MenuItem>
+                )
+            }
+            {
+                sorting && (
+                    <Styles.MenuItem type="button" onClick={()=>window.location.reload()}>
+                        Reset!
                     </Styles.MenuItem>
                 )
             }
