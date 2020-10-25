@@ -19,7 +19,7 @@ export const BarContainer = styled.div`
         width: 600px;
     }
     @media (max-width: ${breakpoints.mobileMd}) {
-        width: 500px;
+        width: 90vw;
     }
     @media (max-width: ${breakpoints.mobileSm}) {
         width: 95vw;

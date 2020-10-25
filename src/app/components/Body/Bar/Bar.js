@@ -15,7 +15,7 @@ const Bar = ({type, value}) => {
             barColor={barColor}
             height={height}
         >
-            {arrayLength < 30 && value}
+            {arrayLength < 20 && value}
         </Styles.Wrapper>
     )
 }
