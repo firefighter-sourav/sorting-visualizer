@@ -24,6 +24,15 @@ export const MenuItem = styled.div`
         margin-right: 0;
     }
 `
+export const LogoMenu = styled(MenuItem)`
+    margin-right: 0px;
+    width: 7%;
+    align-items: flex-end;
+`
+export const Logo = styled.img`
+    width: 50px;
+    height: auto;
+`
 export const Select = styled.select`
     width: 100%;
     height: 100%;

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import sleep from "../../helpers/sleep"
 import swap from "../../helpers/swap"
-import { updateActiveBars, updateBars, updateSorted, updateSorting } from "../../store/actions/barActions"
+import { updateActiveBars, updateBars, updateSorting } from "../../store/actions/barActions"
 import finishSorting from "../../store/dispatchers/finishSorting"
 
 const useBubbleSort = () => {

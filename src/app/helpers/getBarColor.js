@@ -1,6 +1,6 @@
 import * as barTypes from "../constants/barTypes";
 
-export default (type) => {
+const getBarColor = (type) => {
     switch(type){
         case barTypes.ACTIVE:
             return "var(--active-bar-background)"
@@ -12,3 +12,5 @@ export default (type) => {
             return "var(--unsorted-bar-background)"
     }
 }
+
+export default getBarColor

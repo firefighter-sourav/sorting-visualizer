@@ -11,8 +11,10 @@ const useSort = () => {
         switch(sortingAlgo) {
             case BUBBLE_SORT:
                 bubbleSort()
+                break
             case MERGE_SORT:
                 mergeSort()
+                break
             default:
                 return
         }

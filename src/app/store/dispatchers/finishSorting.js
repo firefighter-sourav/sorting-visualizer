@@ -6,7 +6,7 @@ const finishSorting = (bars) => async (dispatch) => {
     for(let i=0; i<bars.length; i++){
         indices.push(i)
         dispatch(updateActiveBars(indices,false))
-        await sleep(50)
+        await sleep(10)
     }
     dispatch(updateSorted(true))
 }

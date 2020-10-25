@@ -19,6 +19,9 @@ const Menu = () => {
     const { sort } = useSort()
     return(
         <Styles.Wrapper>
+            <Styles.LogoMenu>
+                <Styles.Logo src={"codetuberLogo.png"}></Styles.Logo>
+            </Styles.LogoMenu>
             <Styles.MenuItem onClick={()=>!sorting && generateNewArray()}>
                 Generate New Array!
             </Styles.MenuItem>
@@ -53,18 +56,18 @@ const Menu = () => {
                 </Styles.Select>
             </Styles.MenuItem>
             {
-                arrayLength && sortingAlgo && speed && !sorting &&  (
+                (arrayLength && sortingAlgo && speed && !sorting) ? (
                     <Styles.MenuItem type="button" onClick={()=>!sorting && sort()}>
                         Sort!
                     </Styles.MenuItem>
-                )
+                ) : null
             }
             {
-                sorting && (
+                sorting ? (
                     <Styles.MenuItem type="button" onClick={()=>window.location.reload()}>
                         Reset!
                     </Styles.MenuItem>
-                )
+                ) : null
             }
         </Styles.Wrapper>
     )

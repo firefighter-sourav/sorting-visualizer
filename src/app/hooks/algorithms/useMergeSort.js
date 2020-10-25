@@ -1,17 +1,15 @@
 import { useDispatch, useSelector } from "react-redux"
-import { MAX_BAR_HEIGHT } from "../../constants/barOptions"
 import sleep from "../../helpers/sleep"
-import swap from "../../helpers/swap"
 import { updateActiveBars, updateBars, updateSorting } from "../../store/actions/barActions"
 import finishSorting from "../../store/dispatchers/finishSorting"
 
 const useMergeSort = () => {
     const dispatch = useDispatch()
     const bars = useSelector((state) => state.bar.bars)
-    const arrayLength = useSelector((state) => state.toolbar.arrayLength)
     const speed = useSelector((state) => state.toolbar.speed)
     const mergeSort = async () => {
         let current_size = 1
+        dispatch(updateSorting(true))
         let newBars = bars
         while (current_size < (newBars.length - 1)) {
             let left = 0
@@ -41,14 +39,14 @@ const useMergeSort = () => {
                     let indices = [k, newBars.indexOf(L[i]), newBars.indexOf(R[j])]
                     indices = [...new Set(indices)]
                     dispatch(updateActiveBars(indices, true))
-                    await sleep(speed*5)
+                    await sleep(speed)
                     if (L[i].value > R[j].value){
                         newBars[k++] = R[j++]
                     } else {
                         newBars[k++] = L[i++]
                     }
                     dispatch(updateActiveBars(indices, false))
-                    await sleep(speed*5)
+                    await sleep(speed)
                     dispatch(updateBars(newBars))
                 }
                 while (i < n1) {
