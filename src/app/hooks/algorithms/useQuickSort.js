@@ -9,6 +9,7 @@ const useQuickSort = () => {
     const arrayLength = useSelector((state) => state.toolbar.arrayLength)
     const speed = useSelector((state) => state.toolbar.speed)
     const quickSort = async () => { 
+        dispatch(updateSorting(true))
         let l = 0
         let h = arrayLength - 1
         // Create an auxiliary temp 
