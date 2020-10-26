@@ -23,10 +23,7 @@ const barReducer = (state = initialState, action) => {
                             type: action.payload.active ? barTypes.ACTIVE : barTypes.SORTED
                         }
                     } else {
-                        return {
-                            ...bar,
-                            type: barTypes.UNSORTED
-                        }
+                        return bar
                     }
                 })
             }

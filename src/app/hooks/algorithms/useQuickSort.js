@@ -4,12 +4,12 @@ import swap from "../../helpers/swap"
 import { updateActiveBars, updateBars, updateSorting } from "../../store/actions/barActions"
 import finishSorting from "../../store/dispatchers/finishSorting"
 
-const useBubbleSort = () => {
+const useQuickSort = () => {
     const dispatch = useDispatch()
     const bars = useSelector((state) => state.bar.bars)
     const arrayLength = useSelector((state) => state.toolbar.arrayLength)
     const speed = useSelector((state) => state.toolbar.speed)
-    const bubbleSort = async () => {
+    const quickSort = async () => {
         let swapped;
         dispatch(updateSorting(true))
         for(let i=0; i<arrayLength; i++){
@@ -24,7 +24,6 @@ const useBubbleSort = () => {
                 dispatch(updateBars(bars))
                 dispatch(updateActiveBars([j, j+1], false))
                 await sleep(speed)
-                dispatch(updateBars(bars))
             }
             if (!swapped) {
                 break
@@ -33,7 +32,7 @@ const useBubbleSort = () => {
         dispatch(updateSorting(false))
         dispatch(finishSorting(bars))
     }
-    return { bubbleSort }
+    return { quickSort }
 }
 
-export default useBubbleSort
+export default useQuickSort

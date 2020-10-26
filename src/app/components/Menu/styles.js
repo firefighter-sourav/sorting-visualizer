@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 export const MenuItemWrapper = styled.div`
     position: relative;
     display: flex;
-    width: 100%;
+    width: 70%;
     @media (max-width: ${breakPoints.mobileMd}){
         position: fixed;
         bottom: 0;
@@ -46,10 +46,28 @@ export const MenuItem = styled.div`
     &:nth-child(last) {
         margin-right: 0;
     }
-    @media (max-width: ${breakPoints.mobileMd}){
-        width: 18%;
+    @media (max-width: ${breakPoints.desktopSm}){
+        font-size: 14px;
+    }
+    @media (max-width: ${breakPoints.tabletMd}){
+        font-size: 12px;
+    }
+    @media (max-width: ${breakPoints.mobileLg}){
+        width: 23%;
         margin: 0 0 0 2%;
         font-size: 10px;
+        &:nth-child(4) {
+            margin: 0 2% 0 2%;
+        }
+    }
+`
+export const ButtonItem = styled(MenuItem)`
+    @media (max-width: ${breakPoints.mobileLg}){
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        height: 30px;
+        width: 40vw;
     }
 `
 export const LogoMenu = styled.div`
@@ -60,6 +78,9 @@ export const LogoMenu = styled.div`
     margin-right: 40px;
     width: 7%;
     align-items: flex-end;
+    @media (max-width: ${breakPoints.desktopSm}){
+        width: 10%;
+    }
 `
 export const Logo = styled.img`
     width: 50px;
@@ -71,7 +92,7 @@ export const Select = styled.select`
     border-radius: 4px;
     cursor: pointer;
     padding: 0 10px;
-    @media (max-width: ${breakPoints.mobileMd}){
+    @media (max-width: ${breakPoints.mobileLg}){
         padding: 0 5px;
         font-size: 10px;
     }

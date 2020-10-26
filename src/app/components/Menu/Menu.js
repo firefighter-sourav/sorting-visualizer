@@ -1,17 +1,24 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import useToolbar from '../../hooks/useToolbar'
 import * as Styles from "./styles"
 import { sortingOptions, lengthOptions, speedOptions } from "./options"
 import useSort from '../../hooks/algorithms/useSort'
+import { updateArrayLength } from '../../store/actions/toolbarActions'
 
 const Menu = () => {
+    const dispatch = useDispatch()
     const {
         generateNewArray,
         onChangeArrayLength,
         onChangeAlgorithm,
         onChangeSpeed
-    } = useToolbar();
+    } = useToolbar()
+    useEffect(() => {
+        let arrayLength = lengthOptions[0].value
+        dispatch(updateArrayLength(arrayLength))
+        generateNewArray(arrayLength)
+    }, [])
     const arrayLength = useSelector((state) => state.toolbar.arrayLength)
     const sortingAlgo = useSelector((state) => state.toolbar.sortingAlgo)
     const sorting = useSelector((state) => state.bar.sorting)
@@ -24,8 +31,8 @@ const Menu = () => {
             </Styles.LogoMenu>
             <Styles.MenuItemWrapper>
                 <Styles.MenuItem>
-                    <Styles.Select onChange={onChangeArrayLength} disabled={sorting}>
-                        <Styles.Option selected disabled>Length</Styles.Option>
+                    <Styles.Select onChange={onChangeArrayLength} defaultValue={lengthOptions[0].value} disabled={sorting}>
+                        <Styles.Option>Length</Styles.Option>
                         {
                             lengthOptions.map((option, index) => 
                                 <Styles.Option key={option.value} value={option.value}>{option.label}</Styles.Option>
@@ -54,23 +61,23 @@ const Menu = () => {
                     </Styles.Select>
                 </Styles.MenuItem>
                 <Styles.MenuItem type="button" onClick={()=>!sorting && generateNewArray()}>
-                    Generate!
+                    Regenerate!
                 </Styles.MenuItem>
-                {
-                    (arrayLength && sortingAlgo && speed && !sorting) ? (
-                        <Styles.MenuItem type="button" onClick={()=>!sorting && sort()}>
-                            Sort!
-                        </Styles.MenuItem>
-                    ) : null
-                }
-                {
-                    sorting ? (
-                        <Styles.MenuItem type="button" onClick={()=>window.location.reload()}>
-                            Reset!
-                        </Styles.MenuItem>
-                    ) : null
-                }
             </Styles.MenuItemWrapper>
+            {
+                (arrayLength && sortingAlgo && speed && !sorting) ? (
+                    <Styles.ButtonItem type="button" onClick={()=>!sorting && sort()}>
+                        Sort!
+                    </Styles.ButtonItem>
+                ) : null
+            }
+            {
+                sorting ? (
+                    <Styles.ButtonItem type="button" onClick={()=>window.location.reload()}>
+                        Reset!
+                    </Styles.ButtonItem>
+                ) : null
+            }
         </Styles.Wrapper>
     )
 }

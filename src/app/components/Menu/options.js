@@ -26,7 +26,10 @@ export const lengthOptions = [
         label: "MAX - Elements"
     }
 ]
-
+/**
+ * value denotes the sleep time
+ * hence the lesser the value the faster the actions
+ */
 export const speedOptions = [
     {
         value: 200,
@@ -54,5 +57,17 @@ export const sortingOptions = [
     {
         value: algoTypes.MERGE_SORT,
         label: "Merge Sort"
+    },
+    {
+        value: algoTypes.SELECTION_SORT,
+        label: "Selection Sort"
+    },
+    {
+        value: algoTypes.HEAP_SORT,
+        label: "Heap Sort"
+    },
+    {
+        value: algoTypes.QUICK_SORT,
+        label: "Quick Sort"
     }
 ]
