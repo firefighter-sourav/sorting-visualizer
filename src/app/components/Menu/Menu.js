@@ -22,6 +22,7 @@ const Menu = () => {
     const arrayLength = useSelector((state) => state.toolbar.arrayLength)
     const sortingAlgo = useSelector((state) => state.toolbar.sortingAlgo)
     const sorting = useSelector((state) => state.bar.sorting)
+    const sorted = useSelector((state) => state.bar.sorted)
     const speed = useSelector((state) => state.toolbar.speed)
     const { sort } = useSort()
     return(
@@ -65,7 +66,7 @@ const Menu = () => {
                     Regenerate!
                 </Styles.ButtonItem>
                 {
-                    (arrayLength && sortingAlgo && speed && !sorting) ? (
+                    (arrayLength && sortingAlgo && speed && !sorting && !sorted) ? (
                         <Styles.ButtonItem onClick={()=>!sorting && sort()}>
                             Sort!
                         </Styles.ButtonItem>

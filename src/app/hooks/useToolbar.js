@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { MIN_BAR_HEIGHT, MAX_BAR_HEIGHT } from "../constants/barOptions";
 import * as barTypes from "../constants/barTypes"
 import getRandomInteger from "../helpers/getRandomInteger";
-import { updateBars } from "../store/actions/barActions";
+import { updateBars, updateSorted } from "../store/actions/barActions";
 import { updateArrayLength, updateSortingAlgorithm, updateSortingSpeed } from "../store/actions/toolbarActions";
 
 const useToolbar = () => {
@@ -17,11 +17,13 @@ const useToolbar = () => {
                 value: getRandomInteger(MIN_BAR_HEIGHT, MAX_BAR_HEIGHT)
             })
         }
+        dispatch(updateSorted(false))
         dispatch(updateBars(newBars))
     }
     const onChangeArrayLength = (e) => {
         const newArrayLength = parseInt(e.target.value);
         dispatch(updateArrayLength(newArrayLength))
+        dispatch(updateSorted(false))
         generateNewArray(newArrayLength)
     }
     const onChangeAlgorithm = (e) => {
