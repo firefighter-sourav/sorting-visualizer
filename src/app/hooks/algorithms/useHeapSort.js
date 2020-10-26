@@ -10,6 +10,7 @@ const useHeapSort = () => {
     var arrayLength = bars.length
     const speed = useSelector((state) => state.toolbar.speed)
     const heapSort = async () => {
+        dispatch(updateSorting(true))
         let n = arrayLength
         for (let i = 1; i < n; i++)  
         { 

@@ -1,13 +1,14 @@
 :root {
   --background: #ffffe6;
-  --nav-bg: #000051;
-  --nav-button: #ecb3ff;
+  --nav-bg: #222831;
+  --generate-button: #229cbb;
+  --sort-button: #7939ce;
   --disabled: rgb(170, 170, 170);
   --text-light: #fff;
   --text-dark: #000;
-  --unsorted-bar-background: #b35900;
-  --active-bar-background: #e6005c;
-  --sorted-bar-background: #248f24;
+  --unsorted-bar-background: #1eb18c;
+  --active-bar-background: #d2d42e;
+  --sorted-bar-background: #2d58e7;
 }
 
 body {

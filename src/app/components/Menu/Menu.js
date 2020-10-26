@@ -32,7 +32,6 @@ const Menu = () => {
             <Styles.MenuItemWrapper>
                 <Styles.MenuItem>
                     <Styles.Select onChange={onChangeArrayLength} defaultValue={lengthOptions[0].value} disabled={sorting}>
-                        <Styles.Option>Length</Styles.Option>
                         {
                             lengthOptions.map((option, index) => 
                                 <Styles.Option key={option.value} value={option.value}>{option.label}</Styles.Option>
@@ -41,8 +40,8 @@ const Menu = () => {
                     </Styles.Select>
                 </Styles.MenuItem>
                 <Styles.MenuItem>
-                    <Styles.Select onChange={onChangeAlgorithm} disabled={sorting}>
-                        <Styles.Option selected disabled>Algorithm</Styles.Option>
+                    <Styles.Select onChange={onChangeAlgorithm} defaultValue="" disabled={sorting}>
+                        <Styles.Option value="" disabled>Algorithm</Styles.Option>
                         {
                             sortingOptions.map((option, index) => 
                                 <Styles.Option key={option.value} value={option.value}>{option.label}</Styles.Option>
@@ -51,8 +50,8 @@ const Menu = () => {
                     </Styles.Select>
                 </Styles.MenuItem>
                 <Styles.MenuItem>
-                    <Styles.Select onChange={onChangeSpeed} disabled={sorting}>
-                        <Styles.Option selected disabled>Speed</Styles.Option>
+                    <Styles.Select onChange={onChangeSpeed} defaultValue="" disabled={sorting}>
+                        <Styles.Option value="" disabled>Speed</Styles.Option>
                         {
                             speedOptions.map((option, index) => 
                                 <Styles.Option key={option.value} value={option.value}>{option.label}</Styles.Option>
@@ -60,24 +59,27 @@ const Menu = () => {
                         }
                     </Styles.Select>
                 </Styles.MenuItem>
-                <Styles.MenuItem type="button" onClick={()=>!sorting && generateNewArray()}>
-                    Regenerate!
-                </Styles.MenuItem>
             </Styles.MenuItemWrapper>
-            {
-                (arrayLength && sortingAlgo && speed && !sorting) ? (
-                    <Styles.ButtonItem type="button" onClick={()=>!sorting && sort()}>
-                        Sort!
-                    </Styles.ButtonItem>
-                ) : null
-            }
-            {
-                sorting ? (
-                    <Styles.ButtonItem type="button" onClick={()=>window.location.reload()}>
-                        Reset!
-                    </Styles.ButtonItem>
-                ) : null
-            }
+            <Styles.ButtonsWrapper>
+                <Styles.ButtonItem disabled={sorting} onClick={()=>!sorting && generateNewArray()}>
+                    Regenerate!
+                </Styles.ButtonItem>
+                {
+                    (arrayLength && sortingAlgo && speed && !sorting) ? (
+                        <Styles.ButtonItem onClick={()=>!sorting && sort()}>
+                            Sort!
+                        </Styles.ButtonItem>
+                    ) : null
+                }
+                {
+                    sorting ? (
+                        <Styles.ButtonItem onClick={()=>window.location.reload()}>
+                            Reset!
+                        </Styles.ButtonItem>
+                    ) : null
+                }
+            </Styles.ButtonsWrapper>
+                
         </Styles.Wrapper>
     )
 }
