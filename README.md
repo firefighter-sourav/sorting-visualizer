@@ -1,6 +1,7 @@
 # Sorting Visualizer
 
 This project is a gui version of sorting algorithms.
+The demo can be found here: https://thecodetuber.netlify.app/
 
 ## Available Scripts
 
