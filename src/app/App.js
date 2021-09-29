@@ -7,6 +7,7 @@ import Menu from "./components/Menu/Menu";
 import * as Styles from "./styles";
 import barReducer from "./store/reducers/barReducer";
 import toolbarReducer from "./store/reducers/toolbarReducer";
+import Seo from "./components/HOC/Seo";
 /*
  * combining all the reducers
  */
@@ -27,12 +28,15 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
+
 const App = () => (
   <Provider store={store}>
-    <Styles.PageWrapper>
-      <Menu />
-      <Body />
-    </Styles.PageWrapper> 
+    <Seo>
+      <Styles.PageWrapper>
+        <Menu />
+        <Body />
+      </Styles.PageWrapper> 
+    </Seo>
   </Provider>
 );
 
